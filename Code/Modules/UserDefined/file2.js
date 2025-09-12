@@ -15,6 +15,7 @@ console.log(value.emp.name);
 */
 
 
+
 //! >>>>>>>>>>>>>>>>>>>>>  2)  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // use destructuring for import 
 
