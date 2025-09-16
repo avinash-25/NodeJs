@@ -13,3 +13,16 @@
 //(nodejs used commonJS modules by -default )
 
 //? 2. ES modules (ESM)  : import and export.
+
+
+//! I nodejs there has a three types of node modules
+
+//? 1) User defiened : there is defiened by users ane can be imported and exported where-ever needded.
+
+//? 2) built-in :  these are also called as core- modules, which are part of nodeJS installation.
+//?  i.e, we dont need to install or write the code from scratch. (import and use).
+// example ===> fs, http, path, crypto, os etc..
+
+// C++(node api)  +  VS  +  ............   =====.    nodeJS
+
+//?  3) => third-party:
