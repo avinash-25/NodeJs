@@ -3,7 +3,7 @@
 // import variableName form "path of the modules" ===> ESM
 
 //! fs stands for "file system"
-// it provides utilities to internet with files present.
+// it provides utilities to internet with filesvand folders present.
 // INTERACTION  :---> CRUD(create, read, update, delete)
 
 // we can execute js code in two ways  --->
@@ -11,7 +11,7 @@
 //? async ( callbacks, then/catch.  async/await) : non-blocking code
 
 import fs, {
-    readFileSync
+  readFileSync
 } from "fs";
 // console.log(fs);
 
@@ -69,12 +69,129 @@ console.log("Data appended");
 
 //?     method  --->  readFileSync()
 //todo  syntax  ---->  fs.readFileSync("path of the file", "encoding");
+// encoding : while converting into binary format, encoding value defines that how many bits will it use the convert a single  character/difit.
 // second argument is not mandotary.
 
+// console.log(1);
+
+// let data = readFileSync("./data.json");
+// console.log(data);
+
+// buffer value --> array of binary numbers
+//? Whatever was the contents, it got converted into binary format
+//!  1) use toString()  ==>  default value of toString() is UTF-8.
+// console.log(data.toString("hex")); // buffer and strams
+
+// console.log(2);
+// console.log(3);
+
+
+//!  2) use encoding value
+/*
 console.log(1);
 
-let data = readFileSync("./data.json");
+let data = fs.readFileSync("./data.json", "utf-8");
 console.log(data);
-// buffer value --> array of binary numbers
+
 console.log(2);
+*/
+
+//!  ques)   copy the contents of "about.html" into a new file "about.text"
+
+// let payload = fs.readFileSync("./about.html", "utf-8");
+
+// fs.writeFileSync("./about.txt", payload);
+// console.log("File created");
+
+//! 4) <========================= delete a file  ==========================>
+
+//? method ------>  unlinkSync();
+// syntax ------->  fs.unlinkSync("path osf the file");
+/*
+try {
+  console.time("file op");
+  console.log("Start");
+
+  fs.unlinkSync("./about.txt");
+  console.log("File deleted");
+
+  console.log("middle");
+  console.log("End");
+
+  console.timeEnd("file op");
+} catch (error) {
+  console.log("somethig went wrong");
+}
+*/
+
+//!  5) <======================  renaming a file/folder  ========================>
+
+//? method name ===>  renameSync()
+// syntax --->  fs.renameSync("old file path/name", "new file path/name")
+
+// fs.renameSync("./about.html", "./about.md"); //? rename file
+// console.log("File renamed");
+
+// fs.renameSync("../about", "moreAbout"); //? rename folder
+
+
+//!  6) <<======================== creating folder   ====================>>
+//? method name ===>  mkdirSync()
+//? Syntax  =======>  fs.mkdirSync("Path of the folder/name")
+
+// console.log(1);
+// fs.mkdirSync("./Folder1");
+// console.log("Folder created");
+
+// fs.mkdirSync("./Folder1/sub"); // for nested structure. create the oute layer first
+// console.log("Sub-Folder created");
+
+// console.log(2);
+// console.log(3);
+
+//todo  ques)  create this structure  -->  "backend/controller/app.js"
+
+// console.log(1);
+// fs.mkdirSync("../../backend");
+// console.log("Folder created");
+
+// fs.mkdirSync("../../backend/controller"); // for nested structure. create the oute layer first
+// console.log("Sub-Folder - 1 created");
+// fs.writeFileSync("../../backend/controller/app.js", "data");
+
+// console.log("Sub-Folder - 2 created");
+
+
+
+// console.log(2);
+// console.log(3);
+
+//!  7) <<======================== deleting folder   ====================>>
+//? method name ==>  rmdirSync()
+// syntax ----->    fs.rmdirSync();
+
+// fs.readdirSync("../about");
+// console.log("Folfer deleted");
+
+//todo  ques)  delete the folder structure --->  "backend/controller/app.js"
+
+/*
+console.log(1);
+fs.unlinkSync("../../backend/controller/app.js"); //! by this we can only delete one empty folder
 console.log(3);
+fs.rmdirSync("../../backend/controller"); // for nested structure. create the oute layer first
+
+console.log(2);
+fs.rmdirSync("../../backend");
+console.log(1);
+*/
+//? shortcut of above
+
+// fs.rmdirSync("../../backend", {
+//   recursive: true
+// }) // do delete all files and folders recursively
+
+let fd = fs.open("./fs.js");
+console.log(fd);
+
+console.log(fs.open("../fs modules"));
