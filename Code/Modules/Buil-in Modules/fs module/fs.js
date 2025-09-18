@@ -1,14 +1,14 @@
-//! before using any built in modules, we have to import it
-//  let/const variableName = require("name of the module"); fs, path, os, etc....  ====> commonJS
-// import variableName form "path of the modules" ===> ESM
+//! Before using any built-in modules, we have to import them
+//  let/const variableName = require("name of the module"); fs, path, os, etc.... ====> CommonJS
+//  import variableName from "path of the modules" ===> ESM
 
 //! fs stands for "file system"
-// it provides utilities to internet with filesvand folders present.
-// INTERACTION  :---> CRUD(create, read, update, delete)
+// It provides utilities to interact with files and folders present.
+// INTERACTION: ---> CRUD (Create, Read, Update, Delete)
 
-// we can execute js code in two ways  --->
+// We can execute JS code in two ways --->
 //? sync  (blocking code)
-//? async ( callbacks, then/catch.  async/await) : non-blocking code
+//? async (callbacks, then/catch, async/await): non-blocking code
 
 import fs, {
   readFileSync
@@ -16,42 +16,40 @@ import fs, {
 // console.log(fs);
 
 /*
-"." --->  means current folder
-".." --> means one filder back
-"/" ---> means get inside current folder
-
+"."   ---> means current folder
+".."  ---> means one folder back
+"/"   ---> means get inside current folder
 */
 
+//! ================================ Synchronous execution using fs =================================
 
-//! ================================   Synchromous execution using fs  =================================
+//! 1) CREATE --> creating a file
 
-//! 1)  create  -->  creating a file
+//?     method  ---> writeFileSync()
+//todo  syntax  ---> fs.writeFileSync("path/name of the file", "data to be added");
+// Both arguments are mandatory.
 
-//?     method  --->  writeFileSync()
-//todo  syntax  ---->  fs.writeFileSync("path/ name of the file", "data to be added");
-// both the arguments are mandatory.
 /*
 console.log("start");
 fs.writeFileSync("./data.json", `{"key2": "value2"}`);
+fs.writeFileSync("../demo.txt", "Wow! You have created a file");
 
-fs.writeFileSync("../demo.txt", " Waoo you have created file");
-
-console.log("File addedd");
+console.log("File added");
 console.log("middle");
 console.log("End");
 */
-//todo:  if the file is present at the given path, new data will override the old one.
-//todo:  if the file is not present, then file will be created with the given data.
 
+//todo: If the file is present at the given path, new data will override the old one.
+//todo: If the file is not present, then file will be created with the given data.
 
+//! ========== UPDATE: appending (add something at last) a file ==========
 
-//! <<=========== update  :  appending(add something at last) a file  ===============>>
-// using this we can only add some data at the last of the line.
+// Using this we can only add some data at the end of the line.
 
-//?     method  --->  appendFileSync()
-//todo  syntax  ---->  fs.appendFileSync("path/ name of the file", "new data");
-// both the arguments are mandatory.
-// if the file is present at the path, then data will be appended. otherwise a new file will be created.
+//?     method  ---> appendFileSync()
+//todo  syntax  ---> fs.appendFileSync("path/name of the file", "new data");
+// Both arguments are mandatory.
+// If the file is present at the path, then data will be appended. Otherwise a new file will be created.
 
 /*
 console.log("File Opened");
@@ -61,32 +59,30 @@ fs.appendFileSync("./emp.java", `[
     {"key3": "value3"}
 ]`);
 console.log("Data appended");
-
 */
 
+//! ========== READ: fetch a file ==========
 
-//! <<=========== read  :  fetch a file  ===============>>
-
-//?     method  --->  readFileSync()
-//todo  syntax  ---->  fs.readFileSync("path of the file", "encoding");
-// encoding : while converting into binary format, encoding value defines that how many bits will it use the convert a single  character/difit.
-// second argument is not mandotary.
+//?     method  ---> readFileSync()
+//todo  syntax  ---> fs.readFileSync("path of the file", "encoding");
+// Encoding: while converting into binary format, encoding value defines how many bits it will use to convert a single character/digit.
+// Second argument is not mandatory.
 
 // console.log(1);
 
 // let data = readFileSync("./data.json");
 // console.log(data);
 
-// buffer value --> array of binary numbers
-//? Whatever was the contents, it got converted into binary format
-//!  1) use toString()  ==>  default value of toString() is UTF-8.
-// console.log(data.toString("hex")); // buffer and strams
+// Buffer value --> array of binary numbers
+//? Whatever the contents were, they got converted into binary format
+
+//! 1) Use toString() ==> default value of toString() is UTF-8.
+// console.log(data.toString("hex")); // buffer and streams
 
 // console.log(2);
 // console.log(3);
 
-
-//!  2) use encoding value
+//! 2) Use encoding value
 /*
 console.log(1);
 
@@ -96,102 +92,102 @@ console.log(data);
 console.log(2);
 */
 
-//!  ques)   copy the contents of "about.html" into a new file "about.text"
+//! Question: Copy the contents of "about.html" into a new file "about.txt"
 
 // let payload = fs.readFileSync("./about.html", "utf-8");
-
 // fs.writeFileSync("./about.txt", payload);
 // console.log("File created");
 
-//! 4) <========================= delete a file  ==========================>
+//! 4) ========================= DELETE a file =========================
 
-//? method ------>  unlinkSync();
-// syntax ------->  fs.unlinkSync("path osf the file");
+//?     method  ---> unlinkSync();
+//todo  syntax  ---> fs.unlinkSync("path of the file");
+
 /*
 try {
-  console.time("file op");
-  console.log("Start");
+    console.time("file op");
+    console.log("Start");
 
-  fs.unlinkSync("./about.txt");
-  console.log("File deleted");
+    fs.unlinkSync("./about.txt");
+    console.log("File deleted");
 
-  console.log("middle");
-  console.log("End");
+    console.log("middle");
+    console.log("End");
 
-  console.timeEnd("file op");
+    console.timeEnd("file op");
 } catch (error) {
-  console.log("somethig went wrong");
+    console.log("Something went wrong");
 }
 */
 
-//!  5) <======================  renaming a file/folder  ========================>
+//! 5) ====================== RENAMING a file/folder ======================
 
-//? method name ===>  renameSync()
-// syntax --->  fs.renameSync("old file path/name", "new file path/name")
+//?     method  ---> renameSync()
+//todo  syntax  ---> fs.renameSync("old file path/name", "new file path/name")
 
 // fs.renameSync("./about.html", "./about.md"); //? rename file
 // console.log("File renamed");
 
 // fs.renameSync("../about", "moreAbout"); //? rename folder
 
+//! 6) ======================== CREATING folder ====================
 
-//!  6) <<======================== creating folder   ====================>>
-//? method name ===>  mkdirSync()
-//? Syntax  =======>  fs.mkdirSync("Path of the folder/name")
+//?     method  ---> mkdirSync()
+//todo  syntax  ---> fs.mkdirSync("Path of the folder/name")
 
 // console.log(1);
 // fs.mkdirSync("./Folder1");
 // console.log("Folder created");
 
-// fs.mkdirSync("./Folder1/sub"); // for nested structure. create the oute layer first
+// fs.mkdirSync("./Folder1/sub"); // For nested structure, create the outer layer first
 // console.log("Sub-Folder created");
 
 // console.log(2);
 // console.log(3);
 
-//todo  ques)  create this structure  -->  "backend/controller/app.js"
+//todo Question: Create this structure --> "backend/controller/app.js"
 
 // console.log(1);
 // fs.mkdirSync("../../backend");
 // console.log("Folder created");
 
-// fs.mkdirSync("../../backend/controller"); // for nested structure. create the oute layer first
+// fs.mkdirSync("../../backend/controller"); // For nested structure, create the outer layer first
 // console.log("Sub-Folder - 1 created");
+
 // fs.writeFileSync("../../backend/controller/app.js", "data");
-
 // console.log("Sub-Folder - 2 created");
-
-
 
 // console.log(2);
 // console.log(3);
 
-//!  7) <<======================== deleting folder   ====================>>
-//? method name ==>  rmdirSync()
-// syntax ----->    fs.rmdirSync();
+//! 7) ======================== DELETING folder ====================
 
-// fs.readdirSync("../about");
-// console.log("Folfer deleted");
+//?     method  ---> rmdirSync()
+//todo  syntax  ---> fs.rmdirSync("path");
 
-//todo  ques)  delete the folder structure --->  "backend/controller/app.js"
+// fs.rmdirSync("../about");
+// console.log("Folder deleted");
+
+//todo Question: Delete the folder structure ---> "backend/controller/app.js"
 
 /*
 console.log(1);
-fs.unlinkSync("../../backend/controller/app.js"); //! by this we can only delete one empty folder
+fs.unlinkSync("../../backend/controller/app.js"); //! By this we can only delete files
 console.log(3);
-fs.rmdirSync("../../backend/controller"); // for nested structure. create the oute layer first
+fs.rmdirSync("../../backend/controller"); // For nested structure, delete inner layers first
 
 console.log(2);
 fs.rmdirSync("../../backend");
 console.log(1);
 */
-//? shortcut of above
+
+//? Shortcut of above approach
 
 // fs.rmdirSync("../../backend", {
-//   recursive: true
-// }) // do delete all files and folders recursively
+//     recursive: true
+// }); // To delete all files and folders recursively
 
-let fd = fs.open("./fs.js");
+let fd = fs.openSync("./fs.js", "r");
 console.log(fd);
 
-console.log(fs.open("../fs modules"));
+console.log(fs.openSync("../fs modules", "r"));
