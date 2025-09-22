@@ -187,7 +187,140 @@ console.log(1);
 //     recursive: true
 // }); // To delete all files and folders recursively
 
-let fd = fs.openSync("./fs.js", "r");
-console.log(fd);
+// let fd = fs.openSync("./fs.js", "r");
+// console.log(fd);
 
-console.log(fs.openSync("../fs modules", "r"));
+// console.log(fs.openSync("../fs modules", "r"));
+
+//! 3) deleting a file
+//? method name ==> unlink()
+//* syntax --> unlink("path/name of the file.txt").then().catch()
+// console.log(1);
+
+// let deletePromise = fsPromise.unlink('./java,txt')
+
+// deletePromise.then(()=>{
+//     console.log('file deleted');
+
+//     })
+//     .catch((err)=>{
+//         console.log('something went wrong');
+
+//     })
+
+//     console.log(2);
+//     console.log(3);
+
+
+// let promise = new Promise((res, rej)=>{
+//     let a = 1;
+
+//     if(a ==1){
+//         res({name:"xyz"})
+//     } else {
+//         rej([1, 2, 3, 4])
+//     }
+// });
+
+// console.log(promise);
+
+// promise.then((a)=>{
+//     console.log(a);
+//     console.log("Promise is resolved");
+
+// }).catch((err)=>{
+//     console.log("something went wrong");
+
+// })
+
+
+
+//! updating a file, creating a folder, renaming a file/ folder, deleting a folder (Do your own)
+
+
+//! =============== asynchronous execution using fs (promise --> asynx and await) ===========================
+
+//? async and await both are keywords which are used together.
+//? async is used in function decalaration.
+//? await is used inside async function.
+//? async function always return a promise
+
+/*
+async function greet() {
+  return "HELLO";
+}
+
+let data = greet();
+console.log(data);
+
+
+async function getTodos1(params) {
+  console.log("Fitst function");
+  let output = await fetch("https");
+  console.log("APi called - 1");
+
+  // console.log(output);
+  // let jsonData = await output.json();
+  // console.log(jsonData);
+
+}
+
+getTodos1();
+getTodos2();
+
+
+async function getTodos2(params) {
+  console.log("Second function");
+  let output = await fetch("https");
+  console.log("APi called - 2");
+
+  // console.log(output);
+  // let jsonData = await output.json();
+  // console.log(jsonData);
+
+}*/
+
+import fsPromise from "node:fs/promises"
+
+
+//! 1) creating a file
+//? method name ==> writeFile();
+
+/*
+async function createFile() {
+  await fsPromise.writeFile("./demo.txt", "data for demo.txt");
+  console.log("File created");
+}
+
+createFile();
+
+
+async function readFile(params) {
+
+  let data = await fsPromise.readFile("./demo.txt", "utf-8");
+  console.log("File read ", data);
+
+}
+readFile();
+*/
+
+//? name of the global object in nodejs is "GLOBAL".
+//? fs:{readFile:function}
+//? readFile: Function
+//? }
+
+//! create this structure ==> "Project/backend/App.js" (outer layer)
+
+/*
+async function createStructure() {
+  await fsPromise.mkdir("./Project");
+  await fsPromise.mkdir("./Project/backend");
+  await fsPromise.writeFile("./Project/backend/app.js", `function(){return "Hello"}`);
+  console.log("Structure created");
+}
+
+createStructure();
+*/
+
+//! deleting a file and folder, renaming a file.folder
+// createStream

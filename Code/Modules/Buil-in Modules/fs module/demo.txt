@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis ipsa
+      animi quam veniam itaque. Ad velit vitae laborum, atque iure illum officia
+      quod consequuntur a, earum accusantium. Id, consectetur voluptate.
+    </p>
+  </body>
+</html>
