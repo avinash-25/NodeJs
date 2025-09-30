@@ -1,0 +1,17 @@
+{
+  "name": "mongodb-project",
+  "version": "1.0.0",
+  "main": "mongodb.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node mongodb.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "mongodb": "^6.20.0"
+  }
+}

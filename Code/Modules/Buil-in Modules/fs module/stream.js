@@ -23,7 +23,7 @@ result.write("Data to be overWritten", () => {
 let read = fs.createReadStream("./index.html", 'utf-8');
 let write = fs.createWriteStream('./demo.txt');
 
-//? pipe() ====> source.pipe(destination)
+// ? pipe() ====> source.pipe(destination)
 
 read.pipe(write);
 console.log('File written');
