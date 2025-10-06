@@ -1,6 +1,7 @@
 import express from "express";
-import connectDB from "./db.js";
+import connectDB from './db.js';
 import fs from "fs";
+import routesFile from './routes.js'; //always pass the extension like fileName.js
 // always impoort modules on top of the code
 
 
@@ -16,16 +17,17 @@ app.use(express.urlencoded({
     extended: true // middleware it parse/read the incoming html form data
 }))
 
+app.use(routesFile);
+
 //! home page
-app.get("/", (req, res) => {
-    res.send(`<h1>This is HomePage</h1>`);
-})
+// app.get("/", (req, res) => {
+//     res.send(`<h1>This is HomePage</h1>`);
+// })
 
 //! form page
 app.get("/get-form", (req, res) => {
     let formContents = fs.createReadStream("./form.html", "utf-8")
     formContents.pipe(res);
-
 })
 
 //! form sunmit
