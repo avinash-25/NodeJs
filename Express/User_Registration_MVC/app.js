@@ -1,11 +1,17 @@
 import express from "express";
 import connectDB from './db.js';
 import fs from "fs";
-import routesFile from './routes.js'; //always pass the extension like fileName.js
-// always impoort modules on top of the code
+import routesFile from './routes.js';
+
 
 
 let app = express();
+
+app.use(express.urlencoded({
+    extended: true // middleware it parse/read the incoming html form data
+}))
+app.use(routesFile);
+
 
 app.listen(9000, (err) => {
     if (err)
@@ -13,11 +19,8 @@ app.listen(9000, (err) => {
     console.log("Server started");
 });
 
-app.use(express.urlencoded({
-    extended: true // middleware it parse/read the incoming html form data
-}))
 
-app.use(routesFile);
+
 
 //! home page
 // app.get("/", (req, res) => {
