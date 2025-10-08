@@ -1,7 +1,7 @@
 import {
     createReadStream
 } from "fs";
-import connectDB from "./db.js";
+import connectDB from "../config/db.js";
 
 export function displayHomePage(req, res) {
     res.send(`<h6>Home Page</h6>`);

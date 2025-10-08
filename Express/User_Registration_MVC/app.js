@@ -1,7 +1,7 @@
 import express from "express";
-import connectDB from './db.js';
+import connectDB from './config/db.js';
 import fs from "fs";
-import routesFile from './routes.js';
+import routesFile from './Routes/routes.js';
 
 
 
@@ -10,7 +10,8 @@ let app = express();
 app.use(express.urlencoded({
     extended: true // middleware it parse/read the incoming html form data
 }))
-app.use(routesFile);
+app.use("/api/v1", routesFile);
+//! API versionaing, static path
 
 
 app.listen(9000, (err) => {

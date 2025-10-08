@@ -7,7 +7,7 @@ import {
     displayHomePage,
     getAllUSers,
     submitForm,
-} from "./controller.js";
+} from "../Controller/controller.js";
 
 //! step --> 2
 let router = Router();
