@@ -1,17 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Styled Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            width: 320px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e4fcf;
+        }
+    </style>
 </head>
+
 <body>
 
-    <form action="/submit-form" method="post">
-        email: <input type="name" name="userEmail" id=""> <br>
-        password: <input type="password" name="userPassword" id=""><br>
-        <button>Submit</button>
-    </form>
-    
+    <div class="form-container">
+        <h2>Login</h2>
+        <form action="/submit-form" method="post">
+            <label for="userEmail">Email</label>
+            <input type="email" name="userEmail" id="userEmail" required />
+
+            <label for="userPassword">Password</label>
+            <input type="password" name="userPassword" id="userPassword" required />
+
+            <button>Submit</button>
+        </form>
+    </div>
+
 </body>
+
 </html>

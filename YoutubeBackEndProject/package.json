@@ -1,19 +1,16 @@
 {
-  "name": "user_registration",
+  "name": "youtubebackendproject",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "type": "commonjs",
   "dependencies": {
-    "cookie-parser": "^1.4.7",
-    "express": "^5.1.0",
-    "mongoose": "^8.20.0",
-    "session": "^0.1.0"
+    "express": "^5.1.0"
   }
 }
