@@ -9,7 +9,7 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Avinash Ranjan",
   "license": "ISC",
   "type": "module",
   "dependencies": {
